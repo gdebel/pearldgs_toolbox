@@ -5,7 +5,8 @@ This repository hosts the Python functions that were created to develop the form
 
 ## Usage
 
-The functions that are provided allow to perform optical calculations, 
+
+
 
 ```python
 import foobar
@@ -15,7 +16,10 @@ foobar.pluralize('goose') # returns 'geese'
 foobar.singularize('phenomena') # returns 'phenomenon'
 ```
 
-## Authors and acknowledgment
+## Authors and acknowledgments
+parler de la FOR, auteurs, datasets
+Cooke, TKY, Hill
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
