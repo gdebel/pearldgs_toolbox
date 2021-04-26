@@ -1,16 +1,11 @@
-# pearl_dgs_toolbox_ajo
+# pearldgs_toolbox_ajo
 
-Foobar is a Python library for dealing with word pluralization.
+This repository hosts the Python functions that were created to develop the formula described in the paper "The PEARL-DGS formula : the development of an open-source machine learning-based thick IOL calculation formula" (Guillaume Debellemanière, Mathieu Dubois, Mathieu Gauvin, Avi Wallerstein, Luis F.Brenner, Radhika Rampat, Alain Saad, Damien Gatinel. *American Journal of Ophthalmology*, 2021). A Jupyter Notebook describing the whole development process is also provided, along with a toy dataset. 
 
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
-```bash
-pip install foobar
-```
 
 ## Usage
+
+The functions that are provided allow to perform optical calculations, 
 
 ```python
 import foobar
@@ -19,6 +14,8 @@ foobar.pluralize('word') # returns 'words'
 foobar.pluralize('goose') # returns 'geese'
 foobar.singularize('phenomena') # returns 'phenomenon'
 ```
+
+## Authors and acknowledgment
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
