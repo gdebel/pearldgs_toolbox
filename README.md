@@ -14,12 +14,13 @@ The toolbox allows to :
 ```python
 from pearldgs_toolbox_ajo import *
 
-thin(n_left, n_right, R) # returns 'power (diopters)'
+thin(n_left, n_right, R) 
+power (diopters)
 ```
 
 - compute the power of a thick lens from the power of each lens surface (diopters), its thickness (meters) and its refractive index  : 
 ```python
-gullstrand(P_left, P_right, thickness, n) 
+gullstrand(P_left, P_right, thickness, n) returns
 ```
 
 ```python
