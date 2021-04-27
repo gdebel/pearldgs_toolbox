@@ -223,16 +223,3 @@ def calculateSegmentedAL(AL, LT):
     CMAL = CMAL / 1000
     CMAL += 200/1000000
     return CMAL
-
-
-
-def predPRC(ARC):
-    '''
-    This function developped from Pentacam data predicts the posterior corneal radius of curvature 
-    from the anterior radius of curvature. It is used instead of the keratometric index. 
-    '''
-    if ARC > 0.00697:
-        PRC = 0.906499 * ARC - 0.000609
-    else:
-        PRC = 1.456596 * ARC - 0.004439
-    return PRC
