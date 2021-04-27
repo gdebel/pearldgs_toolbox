@@ -6,15 +6,59 @@ The PEARL-DGS thick lens formula toolbox is provided in the pearldgs_toolbox_ajo
 
 ## Usage
 
-Signs of the variables used as inputs in the functions (or returned by the functions) respect the cartesian sign convention : distances to the left are negative, and distances to the right are positive. Convex lenses have a positive sign and concave lenses have a negative sign. 
+Signs of the variables used as inputs in the functions (or returned by the functions) respect the cartesian sign convention : distances to the left are negative, and distances to the right are positive. Convex lenses have a positive sign and concave lenses have a negative sign. All distances must be converted to meters before being used as inputs, including the biometric parameters that are usually expressed in mm (corneal radii, axial length...) or in micrometers (central corneal thickness).
 
 The toolbox allows to : 
 
-- compute the power of a thin lens from its radius of curvature and the refractive indices of the surrounding media : 
+- compute the power of a thin lens from its radius of curvature (meters) and the refractive indices of the surrounding media : 
+```python
+from pearldgs_toolbox_ajo import *
+
+thin(n_left, n_right, R) # returns 'power (diopters)'
+```
+
+- compute the power of a thick lens from the power of each lens surface (diopters), its thickness (meters) and its refractive index  : 
+```python
+gullstrand(P_left, P_right, thickness, n) 
+```
 
 ```python
-pearldgs_toolbox_ajo.thin(n_left, n_right, R) # returns 'power (D)'
+convertSpectaclesToCornea(Spec_ref,d)
 ```
+
+```python
+convertCorneaToSpectacles(K_ref,d):
+```
+
+```python
+FFLBFL(n_left, n_right, power)
+```
+
+```python
+FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left)
+```
+
+```python
+calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE, AL, d)
+```
+
+```python
+calcSE(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, TILP_pred, AL, d)
+```
+
+```python
+calcPRC(R1post, R2post)
+```
+
+```python
+calcARC(R1, R2)
+```
+
+```python
+calculateSegmentedAL(AL, LT)
+```
+
+
 
 ## Authors and acknowledgments
 parler de la FOR, auteurs, datasets
