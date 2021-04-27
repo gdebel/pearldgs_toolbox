@@ -62,10 +62,10 @@ def FFLBFL(n_left, n_right, power):
 
 def FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left):
     '''
-    Returns the first principale plane and second principale planes of a thick lens from :
+    Returns the first principal plane and second principal planes of a thick lens from :
     - lens thickness (if the system studied is composed of two thick lenses, "thickness" must be replaced
     by the optical distance between the two lenses : 
-    optical distance = physical_distance - left lens 2d principale plane + right lens first principale plane)
+    optical distance = physical_distance - left lens 2d principal plane + right lens first principal plane)
     - front and back focal planes of the thick lens
     - front focal plane of the right surface (or lens if the system studied is composed of two thick lenses)
     - back focal plane of the left surface (or lens if the system studied is composed of two thick lenses)
