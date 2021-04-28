@@ -45,11 +45,11 @@ NB : to compute the first and second principal planes of a system of two thick l
 FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left) # returns the first principal plane and the second principal plane of the thick lens.
 ```
 
-- 
+- Compute the Theoretical Internal Lens Position (TILP) for a given postoperative eye. This is the distance from the posterior corneal surface to the anterior IOL surface that leads to the real postoperative spherical equivalent when used in thick lens equations along with the other optical parameters of the eye (cornea and IOL thicknesses, refractive indices and radii of curvature ; refractive index of the acqueous and vitreous ; axial length). This value can be compared as the thick lens version of the "d" value of the Haigis formula. Inputs : refractive indices of the cornea, IOL, vitreous, air and acqeuous ;  anterior and posterior corneal radii ; corneal thickness ; anterior and posterior IOL radii ; IOL thickness ; postoperative spherical equivalent ; axial length ; vertex distance.
 ```python
-calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE, AL, d) # returns ()
+calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE, AL, d) # returns the TILP (meters).
 ```
-
+- Compute
 ```python
 calcSE(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, TILP_pred, AL, d) # returns ()
 ```
