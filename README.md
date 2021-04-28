@@ -45,27 +45,29 @@ NB : to compute the first and second principal planes of a system of two thick l
 FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left) # returns the first principal plane and the second principal plane of the thick lens.
 ```
 
-- Compute the Theoretical Internal Lens Position (TILP) for a given postoperative eye. This is the distance from the posterior corneal surface to the anterior IOL surface that leads to the real postoperative spherical equivalent when used in thick lens equations along with the other optical parameters of the eye (cornea and IOL thicknesses, refractive indices and radii of curvature ; refractive index of the acqueous and vitreous ; axial length). This value can be compared as the thick lens version of the "d" value of the Haigis formula. Inputs : refractive indices of the cornea, IOL, vitreous, air and acqeuous ;  anterior and posterior corneal radii ; corneal thickness ; anterior and posterior IOL radii ; IOL thickness ; postoperative spherical equivalent ; axial length ; vertex distance.
+- Compute the Theoretical Internal Lens Position (TILP) for a given postoperative eye. This is the distance from the posterior corneal surface to the anterior IOL surface that leads to the real postoperative spherical equivalent when used in thick lens equations along with the other optical parameters of the eye (cornea and IOL thicknesses, refractive indices and radii of curvature ; refractive index of the acqueous and vitreous ; axial length). This function is used to calculate the target value that will be used as a reference to train the TILP predictive algorithms, using the eyes of the training set. This value can be compared as the thick lens version of the "d" value of the Haigis formula. Inputs : refractive indices of the cornea, IOL, vitreous, air and acqeuous ;  anterior and posterior corneal radii ; corneal thickness ; anterior and posterior IOL radii ; IOL thickness ; postoperative spherical equivalent ; axial length ; vertex distance.
 ```python
 calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE, AL, d) # returns the TILP (meters).
 ```
-- Compute
+- Compute the predicted spherical equivalent at the spectacle plane for a given eye and a given TILP. This function is used to calculate the predicted spherical equivalent once the predicted TILP has been computed. Inputs : refractive indices of the cornea, IOL, vitreous, air and acqeuous ;  anterior and posterior corneal radii ; corneal thickness ; anterior and posterior IOL radii ; IOL thickness ; predicted TILP ; axial length ; vertex distance.
 ```python
 calcSE(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, TILP_pred, AL, d) # returns ()
 ```
 
-```python
-calcPRC(R1post, R2post) # returns ()
-```
-
+- Calculate the corneal anterior radius of curvature from the steep and flat anterior corneal radii (geometrical mean). 
 ```python
 calcARC(R1, R2) # returns ()
 ```
 
+- Calculate the corneal posterior radius of curvature from the steep and flat posterior corneal radii, when available (geometrical mean). 
+```python
+calcPRC(R1post, R2post) # returns ()
+```
+
+- Calculate the Cooke-modified AL, that approximates the sum-of-segments AL (Cooke D. L. & Cooke T. L.  : Approximating sum-of-segments axial length from a traditional optical low-coherence reflectometry measurement. *Journal of Cataract & Refractive Surgery* vol. 45 351–354 (2019))
 ```python
 calculateSegmentedAL(AL, LT) # returns ()
 ```
-
 
 
 ## Authors and acknowledgments
@@ -74,9 +76,7 @@ Cooke, TKY, Hill
 
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+Comments, corrections and suggestions are welcome. Please open an issue first to discuss what you would like to update.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
