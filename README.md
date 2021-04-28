@@ -73,11 +73,9 @@ calculateSegmentedAL(AL, LT) # returns ()
 ## Authors and acknowledgments
 The Postoperative spherical Equivalent Prediction using ARtificial Intelligence and Linear algorithms (PEARL) project aims to assess the potential of Artificial Intelligence (AI) techniques in the IOL calculation field, to determine the optimal architecture of those formulas, and to encourage open research in this field by publishing the experiments and the related code under an open-source license.
 
-It is conducted by a team from the Anterior Segment and Refractive Surgery Department at Rothschild Foundation Hospital, Paris.
+It is conducted by Dr Debellemanière, Gatinel and Saad from the Anterior Segment and Refractive Surgery Department at Rothschild Foundation Hospital, Paris. 
 
-
-
-The authors thank Dr David Cooke (Michigan, USA) and Dr Tun Kuan Yeo (Tan Tock Seng Hospital, Singapore) for their thrilling discussions about IOL calculation formulas.  
+The authors thank Dr Ronald Melles (Kaiser Permanente Redwood City Medical Center, Redwood City, California, USA), Dr David Cooke (Great Lakes Eye Care, St. Joseph, Michigan, USA) and Dr Tun Kuan Yeo (Tan Tock Seng Hospital, Singapore) for their thrilling discussions about IOL calculation formulas.
 
 
 ## Contributing
