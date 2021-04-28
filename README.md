@@ -54,12 +54,12 @@ calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE, AL
 calcSE(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, TILP_pred, AL, d) # returns ()
 ```
 
-- Calculate the corneal anterior radius of curvature from the steep and flat anterior corneal radii (geometrical mean). 
+- Calculate the corneal anterior radius of curvature from the steep and flat anterior corneal radii (geometric mean). 
 ```python
 calcARC(R1, R2) # returns ()
 ```
 
-- Calculate the corneal posterior radius of curvature from the steep and flat posterior corneal radii, when available (geometrical mean). 
+- Calculate the corneal posterior radius of curvature from the steep and flat posterior corneal radii, when available (geometric mean). 
 ```python
 calcPRC(R1post, R2post) # returns ()
 ```
@@ -71,8 +71,13 @@ calculateSegmentedAL(AL, LT) # returns ()
 
 
 ## Authors and acknowledgments
-parler de la FOR, auteurs, datasets
-Cooke, TKY, Hill
+The Postoperative spherical Equivalent Prediction using ARtificial Intelligence and Linear algorithms (PEARL) project aims to assess the potential of Artificial Intelligence (AI) techniques in the IOL calculation field, to determine the optimal architecture of those formulas, and to encourage open research in this field by publishing the experiments and the related code under an open-source license.
+
+It is conducted by a team from the Anterior Segment and Refractive Surgery Department at Rothschild Foundation Hospital, Paris.
+
+
+
+The authors thank Dr David Cooke (Michigan, USA) and Dr Tun Kuan Yeo (Tan Tock Seng Hospital, Singapore) for their thrilling discussions about IOL calculation formulas.  
 
 
 ## Contributing
