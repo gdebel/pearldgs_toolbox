@@ -98,26 +98,21 @@ def calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE
     Riol2 = posterior IOL radius of curvature
     IOLt = IOL thickness
     SE = real postoperative SE, spectacle plane
-    AL = axial length 
+    AL = anatomical axial length 
     d = vertex distance
     '''
-    
-    SEc = convertSpectaclesToCornea(SE,d)
+
     Pco1 = thin(nair, nco, Rco1)
     Pco2 = thin(nco, naq, Rco2)
-    # The real corneal power is calculated
-    Pco = gullstrand(Pco1, Pco2, eco, nco)  
-    # The corneal power is corrected using the refraction (at corneal plane)
-    Pco += SEc
-    # The anterior corneal radius of curvature achieving the corrected corneal power is calculated
+    Pco = gullstrand(Pco1, Pco2, eco, nco)
+    Pco = Pco + (SE / (1 - d * SE))
     Pco1 = (nco*Pco-nco*Pco2) / (nco - Pco2*eco)
-    # FFL and BFL are calculated for posterior corneal radius and corrected anterior radius
+    
     ffl_co1, bfl_co1 = FFLBFL(nair, nco, Pco1)
     ffl_co2, bfl_co2 = FFLBFL(nco, naq, Pco2 )
-    # FFL, BFL, FPP and SPP are calculated for the entire corrected cornea
     ffl_co, bfl_co = FFLBFL(nair, naq, Pco)
     fpp_co, spp_co = FPPSPP(eco, ffl_co, ffl_co2, bfl_co, bfl_co1)
-    # Same calculations for the IOL 
+    
     Piol1 = thin(naq, niol, Riol1)
     Piol2 = thin(niol, nvit, Riol2)
     ffl_iol1, bfl_iol1 = FFLBFL(naq, niol, Piol1)
@@ -125,14 +120,21 @@ def calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE
     Piol = gullstrand(Piol1, Piol2, IOLt, niol)
     ffl_iol, bfl_iol = FFLBFL(naq, nvit, Piol)
     fpp_iol, spp_iol = FPPSPP(IOLt, ffl_iol, ffl_iol2, bfl_iol, bfl_iol1)
-    # Optical TILP back-calculation :
-    ALmod = AL-eco+fpp_iol-spp_co-IOLt-spp_iol
-    D1 = ((nvit*naq)/bfl_co)-(naq*Pco)-(naq*Piol)-Pco*Piol*ALmod
-    D1square = D1**2
-    D2 = 4*Pco*Piol*(ALmod * (naq*Pco + naq*Piol) - nvit*naq)
-    D = D1square-D2
-    TILP = (-D1 - np.sqrt(D))/(2*Pco*Piol) +spp_co-fpp_iol
     
+    Hi_Hprimei = IOLt - fpp_iol + spp_iol
+    ALt = AL - (spp_co + eco) - Hi_Hprimei
+    
+    elem1 = (Pco * (naq-nvit + ALt*Piol) + naq*Piol)
+    elem2= 4*naq*Pco*Piol * (Pco*ALt + ALt*Piol-nvit )
+    
+    if Piol > 0:
+        ELPt = (- np.sqrt(elem1*elem1-elem2)+elem1) / (2*Pco*Piol)           
+    else :
+        ELPt = ( np.sqrt(elem1*elem1-elem2)+elem1) / (2*Pco*Piol)
+        
+    ALP = ELPt + (spp_co + eco) -  fpp_iol 
+    TILP = ALP - eco
+
     return TILP
 
 
