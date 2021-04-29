@@ -4,7 +4,10 @@ This repository hosts the Python functions that were created to develop the form
 
 The Postoperative spherical Equivalent prediction using ARtificial Intelligence and Linear algorithms (PEARL) project aims to assess the potential of Artificial Intelligence (AI) techniques in the IOL calculation field, to determine the optimal architecture of those formulas, and to encourage open research in this field by publishing the experiments and the related code under an open-source license.
 
-The PEARL-DGS thick lens formula toolbox is provided in the pearldgs_toolbox_ajo.py Python module. The formula building process, and functions that are related to this specific paper, are described in the Jupyter Notebook.
+The PEARL-DGS thick lens formula toolbox is provided in the "pearldgs_toolbox.py" Python module and is intended as an evolving tool. It will be updated and upgraded.
+
+The file named "pearldgs_toolbox_ajo.py" is specifically related to the AJO paper and will not change over time. 
+Similarly, the formula building process, and functions that are related to this specific paper, are described in the Jupyter Notebook named "PEARL-DGS creation steps - AJO.ipynb" that will remain unchanged.
 
 This work is released under the open-source MIT license. Please cite the authors if you use this code in your work.
 
