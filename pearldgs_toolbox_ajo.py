@@ -6,11 +6,11 @@ def thin(n_left, n_right, R):
     '''
     Thin lens formula. 
     Returns the dioptric power of a thin lens
-    Inputs = radius of curvature, left and right refractive indices.
+    Inputs = left refractive index, right refractive index, radius of curvature (meters).
     /!\ The radius is positive if the lens is convex and negative if the lens is concave.
     For example : both radius of the cornea have positive signs.
     For a biconvex IOL, the anterior radius is positive, and the posterior radius is negative.
-    R = in meters
+    Output is in diopters.
     '''
     power = (n_right - n_left) / R
     return power
@@ -21,8 +21,9 @@ def gullstrand(P_left, P_right, thickness, n):
     '''
     Gullstrand formula. 
     Returns the power of the thick lens
-    Inputs = dioptric power of each surface, thickness of the lens studied (meters), 
+    Inputs = dioptric power of left and right surface, thickness of the lens studied (meters), 
     refractive index of the lens studied
+    Output is in diopters.
     '''
     power = P_left + P_right - (thickness * P_left * P_right / n)
     return power
@@ -32,7 +33,8 @@ def gullstrand(P_left, P_right, thickness, n):
 def convertSpectaclesToCornea(Spec_ref,d):
     '''
     Converts the refraction measured in the spectacle plane to the corresponding refraction 
-    in the corneal plane. d = vertex distance in meters. SE = diopters.
+    at the corneal plane. Spec_ref = refraction spherical equivalent at spectacle plane (diopters).
+    d = vertex distance in meters.
     '''
     K_ref = Spec_ref /(1 - d * Spec_ref)
     return K_ref
@@ -41,8 +43,9 @@ def convertSpectaclesToCornea(Spec_ref,d):
 
 def convertCorneaToSpectacles(K_ref,d):
     '''
-    Converts the refraction measured in the spectacle plane to the corresponding refraction 
-    in the corneal plane. d = vertex distance in meters. SE = diopters.
+    Converts the refraction measured in the corneal plane to the corresponding refraction 
+    at the spectacle plane. K_ref = refraction spherical equivalent at corneal plane (diopters).
+    d = vertex distance in meters.
     '''
     Spec_ref = K_ref /(1 + d * K_ref)
     return Spec_ref
@@ -52,7 +55,7 @@ def convertCorneaToSpectacles(K_ref,d):
 def FFLBFL(n_left, n_right, power):
     '''
     Returns the front focal length and the back focal length of the lens
-    Inputs = power of the lens and surrounding refractive indices values
+    Inputs = surrounding refractive indices values, power of the thick lens or lens surfaces.
     '''
     ffl = - n_left / power
     bfl = n_right / power
@@ -63,11 +66,12 @@ def FFLBFL(n_left, n_right, power):
 def FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left):
     '''
     Returns the first principal plane and second principal plane of a thick lens from :
-    - lens thickness. If the system studied is composed of two thick lenses, "thickness" must be replaced by the optical distance between the two lenses : 
+    - lens thickness (named "delta", meters) | NB : If the system studied is composed of two thick lenses, "thickness" must be replaced by the optical distance between the two lenses : 
     optical distance = physical_distance (right surface of the left lens to left surface of the right lens) - left lens second principal plane + right lens first principal plane
-    - front and back focal lengths of the thick lens
-    - front focal length of the right surface (or right thick lens if the system studied is composed of two thick lenses)
-    - back focal length of the left surface (or left thick lens if the system studied is composed of two thick lenses)
+    - front focal lengths of the thick lens | if system of two lenses : of the lens system
+    - front focal length of the right lens surface | if system of two lenses : of the right thick lens 
+    - back focal lengths of the thick lens | if system of two lenses : of the lens system
+    - back focal length of the left surface  | if system of two lenses : of the left thick lens 
     '''
     fpp = delta * ffl_thick / ffl_right
     spp = - delta * bfl_thick / bfl_left
@@ -77,12 +81,10 @@ def FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left):
 
 def calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE, AL, d):
     '''
-    This function back-calculates the reference TILP (distance between the posterior corneal surface and the anterior lens surface) 
-    from the radius of curvatures, thicknesses and indices of the different elements of the post-operative eye, and the postop refraction.
-    The reference TILP is the TILP value that allow thick lens equations to exactly output the postoperative refraction. 
+    This function back-calculates the Theoretical Internal Lens Position (TILP) for a given postoperative eye.
+    The TILP is the posterior corneal surface to anterior IOL surface distance that allow thick lens equations to exactly output the postoperative refraction.
     All lengths are in meters. 
-    Signs respect the cartesian sign convention : distances to the left are negative, 
-    and distances to the right are positive. 
+    Signs respect the cartesian sign convention : distances to the left are negative, distances to the right are positive. 
     nco = refractive index of the cornea
     niol = refractive index of the iol
     nvit =  refractive index of the vitreous
@@ -138,8 +140,8 @@ def calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE
 
 def calcSE(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, TILP_pred, AL, d):
     '''
-    This function calculates the postoperative SE at the spectacle plane from the radius of curvatures, 
-    thicknesses and indices of the different elements of the eye, for a given TILP value. 
+    This function computes the predicted spherical equivalent at the spectacle plane for a given eye and a given TILP. 
+    This function is used to calculate the predicted spherical equivalent once the predicted TILP has been computed. 
     All lengths are in meters. 
     Signs respect the cartesian sign convention : distances to the left are negative, 
     and distances to the right are positive. 
@@ -201,7 +203,7 @@ def calcPRC(R1post, R2post):
 
 def calcARC(R1, R2):
     '''
-    The mean corneal radius of curvature is calculated from the geometric mean of the flat and steep 
+    The mean corneal radius of curvature is the geometric mean of the flat and steep 
     corneal radius of curvatures.
     '''
     ARC = np.sqrt(R1*R2)
