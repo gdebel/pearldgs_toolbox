@@ -63,12 +63,11 @@ def FFLBFL(n_left, n_right, power):
 def FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left):
     '''
     Returns the first principal plane and second principal plane of a thick lens from :
-    - lens thickness (if the system studied is composed of two thick lenses, "thickness" must be replaced
-    by the optical distance between the two lenses : 
-    optical distance = physical_distance - left lens 2d principal plane + right lens first principal plane)
-    - front and back focal planes of the thick lens
-    - front focal plane of the right surface (or lens if the system studied is composed of two thick lenses)
-    - back focal plane of the left surface (or lens if the system studied is composed of two thick lenses)
+    - lens thickness. If the system studied is composed of two thick lenses, "thickness" must be replaced by the optical distance between the two lenses : 
+    optical distance = physical_distance (right surface of the left lens to left surface of the right lens) - left lens second principal plane + right lens first principal plane
+    - front and back focal lengths of the thick lens
+    - front focal length of the right surface (or right thick lens if the system studied is composed of two thick lenses)
+    - back focal length of the left surface (or left thick lens if the system studied is composed of two thick lenses)
     '''
     fpp = delta * ffl_thick / ffl_right
     spp = - delta * bfl_thick / bfl_left
@@ -78,11 +77,9 @@ def FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left):
 
 def calcTILP(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, SE, AL, d):
     '''
-    This function back-calculates the reference TILP (distance between the posterior corneal surface and the 
-    anterior lens surface) from the radius of curvatures, thicknesses and indices of the different 
-    elements of the post-operative eye, and the postop refraction.
-    The reference TILP is the TILP value that enables the optical formula to exactly output the postop refraction. 
-    The TILP is then converted to TILP_haptics by adding half of the IOL thickness.
+    This function back-calculates the reference TILP (distance between the posterior corneal surface and the anterior lens surface) 
+    from the radius of curvatures, thicknesses and indices of the different elements of the post-operative eye, and the postop refraction.
+    The reference TILP is the TILP value that allow thick lens equations to exactly output the postoperative refraction. 
     All lengths are in meters. 
     Signs respect the cartesian sign convention : distances to the left are negative, 
     and distances to the right are positive. 
@@ -143,8 +140,6 @@ def calcSE(nco, niol, nvit, nair, naq, Rco1, Rco2, eco, Riol1, Riol2, IOLt, TILP
     '''
     This function calculates the postoperative SE at the spectacle plane from the radius of curvatures, 
     thicknesses and indices of the different elements of the eye, for a given TILP value. 
-    The TILP value taken as input is the predicted TILP_haptics value, which is converted to the predicted TILP 
-    value (distance between the posterior corneal surface and the anterior lens surface)
     All lengths are in meters. 
     Signs respect the cartesian sign convention : distances to the left are negative, 
     and distances to the right are positive. 
