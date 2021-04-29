@@ -1,4 +1,4 @@
-# pearldgs_toolbox_ajo
+# pearldgs_toolbox
 
 This repository hosts the Python functions that were created to develop the formula described in the paper, "The PEARL-DGS formula : the development of an open-source machine learning-based thick IOL calculation formula" (Guillaume Debellemanière, Mathieu Dubois, Mathieu Gauvin, Avi Wallerstein, Luis F.Brenner, Radhika Rampat, Alain Saad, Damien Gatinel. *American Journal of Ophthalmology*, 2021). Calculations related to the computation of the theoretical effective lens position are also explained in the following article : "Determining the Theoretical Effective Lens Position of Thick Intraocular Lenses for Machine Learning–Based IOL Power Calculation and Simulation" (Damien Gatinel, Guillaume Debellemanière, Alain Saad, Mathieu Dubois, Radhika Rampat. *Translational Vision Science & Technology*, 2021).
 
