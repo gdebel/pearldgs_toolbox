@@ -2,6 +2,8 @@
 
 This repository hosts the Python functions that were created to develop the formula described in the paper "The PEARL-DGS formula : the development of an open-source machine learning-based thick IOL calculation formula" (Guillaume Debellemanière, Mathieu Dubois, Mathieu Gauvin, Avi Wallerstein, Luis F.Brenner, Radhika Rampat, Alain Saad, Damien Gatinel. *American Journal of Ophthalmology*, 2021). Calculations related to the calculation of the theoretical effective lens position are also explained in the following article : "Determining the Theoretical Effective Lens Position of Thick Intraocular Lenses for Machine Learning–Based IOL Power Calculation and Simulation" (Damien Gatinel, Guillaume Debellemanière, Alain Saad, Mathieu Dubois, Radhika Rampat. *Translational Vision Science & Technology*, 2021).
 
+The Postoperative spherical Equivalent Prediction using ARtificial Intelligence and Linear algorithms (PEARL) project aims to assess the potential of Artificial Intelligence (AI) techniques in the IOL calculation field, to determine the optimal architecture of those formulas, and to encourage open research in this field by publishing the experiments and the related code under an open-source license.
+
 The PEARL-DGS thick lens formula toolbox is provided in the pearldgs_toolbox_ajo.py Python module. The formula building process, and functions that are related to this specific paper, are described in the Jupyter Notebook.
 
 This work is released under the open-source MIT license. Please cite the authors if you use this code in your work.
@@ -71,9 +73,7 @@ calculateSegmentedAL(AL, LT) # returns CMAL (meters)
 
 
 ## Authors and acknowledgments
-The Postoperative spherical Equivalent Prediction using ARtificial Intelligence and Linear algorithms (PEARL) project aims to assess the potential of Artificial Intelligence (AI) techniques in the IOL calculation field, to determine the optimal architecture of those formulas, and to encourage open research in this field by publishing the experiments and the related code under an open-source license.
-
-It is conducted by Dr Debellemanière, Gatinel and Saad from the Anterior Segment and Refractive Surgery Department at Rothschild Foundation Hospital, Paris. Dr Mathieu Dubois (Rothschild Foundation Hospital), Dr Radhika Rampat (Moorfields Eye Hospital, London), Ms Hélène Rouger (Rothschild Foundation Hospital), Dr Mathieu Gauvin and Dr Avi Wallerstein (LASIK MD, Montreal, Canada) have been or still are actively involved in this project and are acknowledged.
+The PEARL project is conducted by Dr Debellemanière, Gatinel and Saad from the Anterior Segment and Refractive Surgery Department at Rothschild Foundation Hospital, Paris. Dr Mathieu Dubois (Rothschild Foundation Hospital), Dr Radhika Rampat (Moorfields Eye Hospital, London), Ms Hélène Rouger (Rothschild Foundation Hospital), Dr Mathieu Gauvin and Dr Avi Wallerstein (LASIK MD, Montreal, Canada) have been or still are actively involved in this project and are acknowledged.
 
 The authors thank Dr Ronald Melles (Kaiser Permanente Redwood City Medical Center, Redwood City, California, USA), Dr David Cooke (Great Lakes Eye Care, St. Joseph, Michigan, USA) and Dr Tun Kuan Yeo (Tan Tock Seng Hospital, Singapore) for their thrilling discussions about IOL calculation formulas.
 
