@@ -45,6 +45,7 @@ FFLBFL(n_left, n_right, power) # returns the front focal length and the back foc
 ```
 
 - Compute the first principal plane and the second principal plane of a thick lens. Inputs : lens thickness (delta), front focal length of the thick lens, front focal length of the right surface, back focal length of the thick lens, back focal length of the left surface.
+The first principal plane is expressed from the left apex and the second principal plane is expressed from the right apex.
 NB : To compute the first and second principal planes of a system of two thick lenses, delta must be equal to the optical distance between the two thick lenses : optical distance = physical distance - left thick lens second principal plane + right thick lens first principal plane. 
 ```python
 FPPSPP(delta, ffl_thick, ffl_right, bfl_thick, bfl_left) # returns the first principal plane and the second principal plane of the thick lens | lens system.
