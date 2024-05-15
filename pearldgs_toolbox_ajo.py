@@ -222,3 +222,10 @@ def calculateSegmentedAL(AL, LT):
     CMAL = CMAL / 1000
     CMAL += 200/1000000
     return CMAL
+
+def predPRC(ARC):
+    if ARC > 0.00711:
+        PRC = 0.9064986365637 * ARC -0.0006091692579
+    else:
+        PRC = 1.456596029018 * ARC -0.0044387404543718
+    return PRC
